@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #67ce6b;
+      color: white;
+      border: none;
+      width: 100px;
+      height: 50px;
+      border-radius: 10px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    p {
+      margin-top: 20px;
+    }
+    #answer{
+        border-radius: 10px;
+    }
+    
+  </style>
+  <body>
+    <div class="container">
+      <label for="answer">Your answer:</label>
+      <input type="text" id="answer" name="answer" />
+      <button onclick="validateAnswer()">Submit</button>
+      <p id="result"></p>
+    </div>
+    <script>
+      function validateAnswer() {
+        let answerInput = document.getElementById("answer");
+        let result = document.getElementById("result");
+
+        if (answerInput.value.length > 10) {
+          result.style.color = "red";
+          result.textContent =
+            "There are more than 10 characters. Please re-enter.";
+        } else {
+          result.style.color = "green";
+          result.textContent = "Success!";
+        }
+      }
+    </script>
+  </body>
+</html>

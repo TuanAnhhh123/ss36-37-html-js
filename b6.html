@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Management</h2>
+    
+    <form id="studentForm">
+        <label>Student ID:</label>
+        <input type="text" id="studentId" maxlength="6" >
+
+        <label>Student Name:</label>
+        <input type="text" id="studentName" >
+
+        <label>Age:</label>
+        <input type="number" id="age" >
+
+        <label>Phone:</label>
+        <input type="tel" id="phone">
+
+        <label>Email:</label>
+        <input type="email" id="email" >
+
+        <button type="button" onclick="createStudent()">Create</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function createStudent() {
+
+            var studentId = document.getElementById('studentId').value;
+            var studentName = document.getElementById('studentName').value;
+            var age = document.getElementById('age').value;
+            var phone = document.getElementById('phone').value;
+            var email = document.getElementById('email').value;
+
+
+            if (studentId.length !== 6) {
+                alert('Student ID must be 6 characters.');
+                return;
+            }
+
+            if (studentName.trim() === '') {
+                alert('Student Name cannot be empty.');
+                return;
+            }
+
+            if (age < 18) {
+                alert('Age must be 18 or older.');
+                return;
+            }
+
+            var phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone)) {
+                alert('Invalid phone number format. Please enter 10 digits.');
+                return;
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Invalid email format.');
+                return;
+            }
+
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h3>Student Information</h3>
+                <p>Student ID: ${studentId}</p>
+                <p>Student Name: ${studentName}</p>
+                <p>Age: ${age}</p>
+                <p>Phone: ${phone}</p>
+                <p>Email: ${email}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>

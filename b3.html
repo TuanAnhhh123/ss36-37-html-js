@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #output1, #output2 {
+      margin-top: 20px;
+      font-size: 18px;
+      border: 1px solid #e61212;
+      padding: 10px;
+      color: #e61212;
+    }
+  </style>
+</head>
+<body>
+
+  <label>Nhập nội dung:</label>
+  <input type="text" id="inputText" oninput="displayInput1(this.value)" onchange="displayInput2(this.value)">
+
+  <div id="output1">
+    <p>Input:</p>
+    <p id="display1"></p>
+  </div>
+
+  <div id="output2">
+    <p>Output:</p>
+    <p id="display2"></p>
+  </div>
+
+  <script>
+    function displayInput1(value) {
+      document.getElementById('display1').innerText = value;
+    }
+
+    function displayInput2(value) {
+      document.getElementById('display2').innerText = value;
+    }
+  </script>
+
+</body>
+</html>
